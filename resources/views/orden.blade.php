@@ -2,20 +2,65 @@
 
 @section('seccion')
 <h1>Orden</h1> 
-<form>
+@if(session('mensaje'))
+  <div class="alet alert-success">
+      {{session('mensaje')}}
+      <button type="button" class="close" data-dismiss="alert" aria-label="close">
+        <spam aria-hidden="true">&times</spam>
+      </button>
+  </div> 
+@endif
+<form action="{{route('crear')}}" method="POST">
+  @csrf
+
+  @error('name')
+    <div class="alert alert-success">
+      El nombre es obligatorio
+      <button type="button" class="close" data-dismiss="alert" aria-label="close">
+        <spam aria-hidden="true">&times</spam>
+      </button>
+    </div>
+  @enderror
+  @error('email')
+    <div class="alert alert-success">
+      El email es obligatorio
+      <button type="button" class="close" data-dismiss="alert" aria-label="close">
+        <spam aria-hidden="true">&times</spam>
+      </button>
+    </div>
+  @enderror
+    @error('phone')
+    <div class="alert alert-success">
+      El telefono es obligatorio
+      <button type="button" class="close" data-dismiss="alert" aria-label="close">
+        <spam aria-hidden="true">&times</spam>
+      </button>
+    </div>
+  @enderror
+  @error('status')
+    <div class="alert alert-success">
+      El estado es obligatorio
+      <button type="button" class="close" data-dismiss="alert" aria-label="close">
+        <spam aria-hidden="true">&times</spam>
+      </button>
+    </div>
+  @enderror
   <div class="form-group">
-    <label for="exampleInputEmail1">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    <label for="Nombre">Nombre</label>
+    <input type="text" class="form-control mb-2" id="Nombre" name="name" placeholder="Ingrese Nombre" value="{{old('name')}}">
+  </div> 
+  <div class="form-group">
+  <label for="Email">Email</label>
+    <input type="email" class="form-control mb-2" id="Email" name="email" placeholder="Ingrese Email" value="{{old('email')}}">
   </div>
   <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1">
-  </div>
-  <div class="form-group form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+    <label for="Phone">Telefono</label>
+    <input type="number" class="form-control mb-2" id="Phone" name="phone" placeholder="Ingrese Número de Telefono" value="{{old('phone')}}">
+  </div> 
+  <div class="form-group">
+    <label for="Status">Estado</label>
+    <input type="text" class="form-control mb-2" id="Status" name="status" placeholder="Ingrese Estado de Venta" value="{{old('status')}}">
+  </div> 
+  <button type="submit" class="btn btn-primary btn-block">Ordenar</button>
 </form>
 @endsection 

@@ -1,34 +1,31 @@
 @extends('plantilla')
 
 @section('seccion')
-<table class="table">
+<table class="table" >
   <thead>
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
+      <th scope="col">id</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Email</th>
+      <th scope="col">Telefono</th>
+      <th scope="col">Estado</th>
+      <th scope="col">Fecha Creación</th>
+      <th scope="col">Fecha Actualización</th>
     </tr>
   </thead>
   <tbody>
+  @foreach($lista as $item)
     <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
+      <th scope="row">{{$item->id}}</th>
+      <td>{{$item->name}}</td>
+      <td>{{$item->email}}</td>
+      <td>{{$item->phone}}</td>
+      <td>{{$item->status}}</td>
+      <td>{{$item->created_at}}</td>
+      <td>{{$item->updated_at}}</td>
+      <td><a href="{{route('resumen',$item)}}" clase="btn btn-primary">Resumen Orden</a></td>
     </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
+   @endforeach
   </tbody>
 </table>
 @endsection

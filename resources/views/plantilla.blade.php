@@ -11,9 +11,9 @@
     <title>Sistema de Pagos</title>
   </head>
   <body>
-    <div class="container">
+    <div class="container my-5">
         <a href="{{route('orden')}}" class="btn btn-primary">Orden</a>
-        <a href="{{route('resumen')}}" class="btn btn-primary">Resumen Orden</a>
+       
         <a href="{{route('estado')}}" class="btn btn-primary">Estado Orden</a>
         <a href="{{route('lista')}}" class="btn btn-primary">Lista Ordenes</a>
     </div>

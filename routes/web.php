@@ -17,6 +17,8 @@ Route::get('/', 'PagesController@orden')->name('orden');
 
 Route::get('listaorden', 'PagesController@lista')->name('lista');
 
-Route::get('resumenorden', 'PagesController@resumen')->name('resumen');
+Route::get('resumenorden/{id}', 'PagesController@resumen')->name('resumen');
 
 Route::get('estadoorden', 'PagesController@estado')->name('estado');
+
+Route::post('/','PagesController@crear')->name('crear');

@@ -22,3 +22,9 @@ Route::get('resumenorden/{id}', 'PagesController@resumen')->name('resumen');
 Route::get('estadoorden', 'PagesController@estado')->name('estado');
 
 Route::post('/','PagesController@crear')->name('crear');
+
+Route::get('editar/{id}', 'PagesController@editar')->name('editar');
+
+Route::put('editar/{id}', 'PagesController@update')->name('update');
+
+Route::delete('eliminar/{id}','PagesController@eliminar')->name('eliminar');

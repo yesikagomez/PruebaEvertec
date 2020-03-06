@@ -17,7 +17,7 @@ class PagesController extends Controller
     }
 
     public function lista(){
-        $lista = App\Orden::all();
+        $lista = App\Orden::paginate(3);
         return view('listaorden',compact('lista'));
     }
 
@@ -68,6 +68,6 @@ class PagesController extends Controller
 
         $nuevaorden->save();
 
-        return back()->with('mensaje','Orden Creada');
+        return view('pagar');
     }
 }

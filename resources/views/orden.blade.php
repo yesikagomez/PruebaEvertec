@@ -37,14 +37,6 @@
       </button>
     </div>
   @enderror
-  @error('status')
-    <div class="alert alert-success">
-      El estado es obligatorio
-      <button type="button" class="close" data-dismiss="alert" aria-label="close">
-        <spam aria-hidden="true">&times</spam>
-      </button>
-    </div>
-  @enderror
   <div class="form-group">
     <label for="Nombre">Nombre</label>
     <input type="text" class="form-control mb-2" id="Nombre" name="name" placeholder="Ingrese Nombre" value="{{old('name')}}">
@@ -56,10 +48,6 @@
   <div class="form-group">
     <label for="Phone">Telefono</label>
     <input type="number" class="form-control mb-2" id="Phone" name="phone" placeholder="Ingrese Número de Telefono" value="{{old('phone')}}">
-  </div> 
-  <div class="form-group">
-    <label for="Status">Estado</label>
-    <input type="text" class="form-control mb-2" id="Status" name="status" placeholder="Ingrese Estado de Venta" value="{{old('status')}}">
   </div> 
   <button type="submit" class="btn btn-primary btn-block">Ordenar</button>
 </form>

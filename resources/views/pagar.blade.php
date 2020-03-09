@@ -1,7 +1,8 @@
 @extends('plantilla')
 
 @section ('seccion')
-<form action="https://test.placetopay.com/redirection/api/session" method="POST" name="pago" content-type =“application/json” >
+<form action="https://test.placetopay.com/redirection/api/session/" method="POST" name="pago" class="form_contact" id="tarjeta">
+@csrf
 <div class="form-group form-radio">
     <input type="radio" onclick="mostrarDetalle()"  aria-label="Radio button for following text input" name="pago" id="credito" value="1" >       
     <label class="form-radio-label" for="credito">Tarjeta Credito</label><br><br>
@@ -103,6 +104,26 @@ function mostrarDetalle(){
     <label for="identificacion">Identificación del Titular</label>
     <input type="number" class="form-control" id="identificacion" placeholder="Ingrese Número de Identificación" >
 </div>
+<div class="form-group">
+    <label for="valor">Telefono</label>
+    <input type="number" class="form-control mb-2" id="valor" name="valor" value="39000">
+  </div> 
+  <div class="form-group">
+    <label for="moneda">Telefono</label>
+    <input type="text" class="form-control mb-2" id="moneda" name="moneda" value="COP">
+  </div> 
+  <div class="form-group">
+    <label for="url">Telefono</label>
+    <input type="text" class="form-control mb-2" id="url" name="url" value="http://127.0.0.1:8000/">
+  </div>
+  <div class="form-group">
+    <label for="conurl">Telefono</label>
+    <input type="text" class="form-control mb-2" id="conurl" name="conurl" value="http://127.0.0.1:8000/">
+  </div> 
+  <div class="form-group">
+    <label for="firma">Telefono</label>
+    <input type="number" class="form-control mb-2" id="firma" name="firma" value="6dd490faf9cb87a9862245da41170ff2">
+  </div> 
 <p id="insertar"></p>
 <button type="submit" class="btn btn-primary">Pagar</button>
 </form>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App;
+use GuzzleHttp\Client;
 
 class PagesController extends Controller
 {
@@ -53,21 +54,44 @@ class PagesController extends Controller
     }
 
     public function crear(Request $request){
-        //return $request->all();
-        $request->validate([
+        
+            $request->validate([
+                'name' => 'required',
+                'email' => 'required',
+                'phone' => 'required',
+            ]);
+
+        
+        if ($request != ""){
+            $nuevaorden=new App\Orden;
+            $nuevaorden->name=$request->name;
+            $nuevaorden->email=$request->email;
+            $nuevaorden->phone=$request->phone;
+            $nuevaorden->status="Created";
+            $nuevaorden->save();
+        }
+            $pago=$nuevaorden->toJson();
+            return view('vistapago',compact('pago'));
+    }
+    public function pagar(Request $request){
+        $nuevopago=$request;
+        /*$request->validate([
             'name' => 'required',
             'email' => 'required',
             'phone' => 'required',
             'status' => 'required'
+        ]);*/
+        //$listaeliminar = App\Orden::findOrFail($id);
+      /*  $client = new Client([
+            'base_url'=> 'https://test.placetopay.com/redirection/api/session/',
+            'timeout'=>2.0,
         ]);
-        $nuevaorden=new App\Orden;
-        $nuevaorden->name=$request->name;
-        $nuevaorden->email=$request->email;
-        $nuevaorden->phone=$request->phone;
-        $nuevaorden->status=$request->status;
-
-        $nuevaorden->save();
-
-        return view('pagar');
+        //$response = $client->request('GET','CreateRequest');
+        //dd($response->getBody());*/
+        $pago2=$nuevopago->toJson();
+        return view('listar',compact('pago2'));
+    }
+    public function pago(){
+        return view('vistapago');
     }
 }

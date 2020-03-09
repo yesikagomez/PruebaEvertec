@@ -28,3 +28,9 @@ Route::get('editar/{id}', 'PagesController@editar')->name('editar');
 Route::put('editar/{id}', 'PagesController@update')->name('update');
 
 Route::delete('eliminar/{id}','PagesController@eliminar')->name('eliminar');
+
+Route::post('pagar','PagesController@pagar')->name('pagar');
+
+Route::get('vistapago','PagesController@pago')->name('pago');
+
+

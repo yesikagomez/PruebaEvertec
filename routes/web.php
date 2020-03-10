@@ -31,6 +31,6 @@ Route::delete('eliminar/{id}','PagesController@eliminar')->name('eliminar');
 
 Route::post('pagar','PagesController@pagar')->name('pagar');
 
-Route::get('vistapago','PagesController@pago')->name('pago');
+Route::get('vistapago/{id}','PagesController@pago')->name('pago');
 
 

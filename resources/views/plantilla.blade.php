@@ -7,16 +7,16 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="MiEstilo.css">
 
     <title>Sistema de Pagos</title>
   </head>
-  <body>
-    <div class="container my-5">
+  <body id="cuerpo" >
+    <div class="container my-3">
         <a href="{{route('orden')}}" class="btn btn-primary">Orden</a>
-       
-        <a href="{{route('estado')}}" class="btn btn-primary">Estado Orden</a>
         <a href="{{route('lista')}}" class="btn btn-primary">Lista Ordenes</a>
     </div>
+    <h2 class="container my-3">Sistema de Pago</h2>
     <div class="container">
         @yield('seccion')  
     </div> 

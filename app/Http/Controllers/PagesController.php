@@ -18,7 +18,7 @@ class PagesController extends Controller
     }
 
     public function lista(){
-        $lista = App\Orden::paginate(3);
+        $lista = App\Orden::paginate(4);
         return view('listaorden',compact('lista'));
     }
 
@@ -34,15 +34,19 @@ class PagesController extends Controller
     public function update(Request $request, $id){
         $request->validate([
             'name' => 'required',
+            'surname' => 'required',
+            'document' => 'required',
+            'documenttype' => 'required',
             'email' => 'required',
-            'phone' => 'required',
-            'status' => 'required'
+            'phone' => 'required'
         ]);
         $listaupdate = App\Orden::findOrFail($id);
         $listaupdate->name=$request->name;
+        $listaupdate->surname=$request->surname;
+        $listaupdate->documenttype=$request->documenttype;
+        $listaupdate->document=$request->document;
         $listaupdate->email=$request->email;
         $listaupdate->phone=$request->phone;
-        $listaupdate->status=$request->status;
         $listaupdate->save();
         return back()->with('mensaje','Orden Actualizada');
     }
@@ -54,24 +58,27 @@ class PagesController extends Controller
     }
 
     public function crear(Request $request){
-        
             $request->validate([
                 'name' => 'required',
+                'surname' => 'required',
+                'document' => 'required',
+                'documenttype' => 'required',
                 'email' => 'required',
-                'phone' => 'required',
+                'phone' => 'required'
             ]);
-
-        
         if ($request != ""){
             $nuevaorden=new App\Orden;
             $nuevaorden->name=$request->name;
+            $nuevaorden->surname=$request->surname;
+            $nuevaorden->documenttype=$request->documenttype;
+            $nuevaorden->document=$request->document;
             $nuevaorden->email=$request->email;
             $nuevaorden->phone=$request->phone;
             $nuevaorden->status="Created";
             $nuevaorden->save();
         }
             $pago=$nuevaorden->toJson();
-            return view('vistapago',compact('pago'));
+            return view('vistapago',compact('nuevaorden'));
     }
     public function pagar(Request $request){
         $nuevopago=$request;
@@ -89,9 +96,10 @@ class PagesController extends Controller
         //$response = $client->request('GET','CreateRequest');
         //dd($response->getBody());*/
         $pago2=$nuevopago->toJson();
-        return view('listar',compact('pago2'));
+        return view('listaorden',compact('pago2'));
     }
-    public function pago(){
-        return view('vistapago');
+    public function pago($id){
+        $nuevaorden =  App\Orden::findOrFail($id);
+        return view('vistapago',compact('nuevaorden'));
     }
 }

@@ -16,6 +16,9 @@ class CreateOrdensTable extends Migration
         Schema::create('ordens', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name',80);
+            $table->string('surname',80);
+            $table->string('document',100);
+            $table->string('documenttype',20);
             $table->string('email',120);
             $table->string('phone',40)->null();
             $table->string('status',20);

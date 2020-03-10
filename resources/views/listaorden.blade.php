@@ -37,6 +37,5 @@
    @endforeach
   </tbody>
 </table>
-{{$pago2}}
 {{$lista->links()}}
 @endsection

@@ -1,0 +1,48 @@
+#cuerpo
+{
+	background: #E3E8EA;
+}
+#titulo
+{
+	color: #326273;
+	text-align: center;
+}
+#titulo2
+{
+	color: #326273;
+	font-weight: bold;
+}
+#Etiquetas
+{
+	color:#636D7C;
+	font-weight: bold;
+	font-size: all;
+	font-family:"arial";
+	font-size: 23px;
+	display: inline;
+}
+#lista
+{
+	color:#636D7C;
+	font-weight: bold;
+	font-size: all;
+	font-family:"arial";
+	font-size: 20px;
+}
+#boton
+{
+	background: #9BD2DD;
+	color: #326273;
+ 	border-radius: 4px;
+ 	font-family: "Times New Roman";
+ 	font-style: italic;
+	font-size: 20px;
+	font-weight: bold;
+}
+#div
+{
+	font-size: 20px;
+	font-weight: bold;
+	color:#5F879A;
+	display: inline;
+}

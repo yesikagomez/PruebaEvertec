@@ -1,6 +1,7 @@
 @extends('plantilla')
 
 @section('seccion')
+<link rel="stylesheet"  href="{{asset('CSS/MiEstilo.css')}}">
 <h1>Orden</h1> 
 @if(session('mensaje'))
   <div class="alet alert-success">
@@ -55,16 +56,16 @@
     </div>
   @enderror
   <div class="form-group container">
-    <label for="Nombre">Nombre</label>
+    <label for="Nombre" id="Etiquetas">Nombre</label>
     <input type="text" class="form-control mb-2" id="Nombre" name="name" placeholder="Ingrese Nombre" value="{{$lista->name}}">
   </div> 
   <div class="form-group container">
-    <label for="surname">Apellido</label>
+    <label for="surname" id="Etiquetas">Apellido</label>
     <input type="text" class="form-control mb-2" id="surname" name="surname" placeholder="Ingrese Nombre" value="{{$lista->surname}}">
   </div> 
   <div class="container row">
     <div class="form-group col">
-      <label for="documenttype">Tipo de Identificación</label>
+      <label for="documenttype" id="Etiquetas">Tipo de Identificación</label>
       <select class="form-control" id="documenttype" name="documenttype" value ="{{$lista->documenttype}}">
           <option>CC</option>
           <option>TI</option>
@@ -73,21 +74,21 @@
       </select>
     </div>
     <div class="form-group col">
-        <label for="document">Identificación del Titular</label>
+        <label for="document" id="Etiquetas">Identificación del Titular</label>
         <input type="number" class="form-control" id="document" name="document" placeholder="Ingrese Número de Identificación" value="{{$lista->document}}">
     </div>
   </div>
   <div class="container row">
     <div class="form-group col">
-      <label for="Email">Email</label>
+      <label for="Email" id="Etiquetas">Email</label>
       <input type="email" class="form-control mb-2" id="Email" name="email" placeholder="Ingrese Email" value="{{$lista->email}}">
     </div>
     <div class="form-group col">
-      <label for="Phone">Telefono</label>
+      <label for="Phone" id="Etiquetas">Telefono</label>
       <input type="number" class="form-control mb-2" id="Phone" name="phone" placeholder="Ingrese Número de Telefono" value="{{$lista->phone}}">
     </div> 
   </div> 
-  <button type="submit" class="btn btn-primary btn-block">Actualizar
+  <button type="submit" id="boton" class="btn btn-primary btn-block">Actualizar
   </button>
 </form>
 @endsection 

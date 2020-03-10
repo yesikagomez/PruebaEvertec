@@ -1,7 +1,8 @@
 @extends('plantilla')
 
 @section('seccion')
-<h1>Orden</h1> 
+<link rel="stylesheet"  href="{{asset('CSS/MiEstilo.css')}}">
+<h2 id="titulo2">Orden</h2> 
 @if(session('mensaje'))
   <div class="alet alert-success">
       {{session('mensaje')}}
@@ -54,16 +55,16 @@
     </div>
   @enderror
   <div class="form-group container">
-    <label for="Nombre">Nombre</label>
+    <label for="Nombre" id="Etiquetas">Nombre</label>
     <input type="text" class="form-control mb-2" id="Nombre" name="name" placeholder="Ingrese Nombre" value="{{old('name')}}">
   </div> 
   <div class="form-group container">
-    <label for="surname">Apellido</label>
+    <label for="surname" id="Etiquetas">Apellido</label>
     <input type="text" class="form-control mb-2" id="surname" name="surname" placeholder="Ingrese Nombre" value="{{old('name')}}">
   </div> 
   <div class="container row">
     <div class="form-group col">
-      <label for="documenttype">Tipo de Identificación</label>
+      <label for="documenttype" id="Etiquetas">Tipo de Identificación</label>
       <select class="form-control" id="documenttype" name="documenttype" value="{{old('documenttype')}}">
           <option>CC</option>
           <option>TI</option>
@@ -72,20 +73,20 @@
       </select>
     </div>
     <div class= "form-group col" >
-        <label for="document">Identificación del Titular</label>
+        <label for="document" id="Etiquetas">Identificación del Titular</label>
         <input type="number" class="form-control" id="document" name="document" value="{{old('document')}} placeholder="Ingrese Número de Identificación" >
     </div>
   </div>
   <div class="container row">
     <div class="form-group col">
-      <label for="Email">Email</label>
+      <label for="Email" id="Etiquetas">Email</label>
       <input type="email" class="form-control mb-2" id="Email" name="email" placeholder="Ingrese Email" value="{{old('email')}}">
     </div>
     <div class="form-group col">
-      <label for="Phone">Telefono</label>
+      <label for="Phone" id="Etiquetas">Telefono</label>
       <input type="number" class="form-control mb-2" id="Phone" name="phone" placeholder="Ingrese Número de Telefono" value="{{old('phone')}}">
     </div> 
   </div>
-  <button type="submit" class="btn btn-primary btn-block">Ordenar</button>
+  <button type="submit" id="boton" class="btn btn-primary btn-block">Ordenar</button>
 </form>
 @endsection 

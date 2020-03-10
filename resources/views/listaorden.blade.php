@@ -1,17 +1,18 @@
 @extends('plantilla')
 
 @section('seccion')
+<link rel="stylesheet"  href="{{asset('CSS/MiEstilo.css')}}">
 <table class="table" >
   <thead>
     <tr>
-      <th scope="col">id</th>
-      <th scope="col">Nombre</th>
-      <th scope="col">Email</th>
-      <th scope="col">Telefono</th>
-      <th scope="col">Estado</th>
-      <th scope="col">Fecha Creación</th>
-      <th scope="col">Fecha Actualización</th>
-      <th scope="col">Acciones</th>
+      <th scope="col" id="lista">id</th>
+      <th scope="col" id="lista">Nombre</th>
+      <th scope="col" id="lista">Email</th>
+      <th scope="col" id="lista">Telefono</th>
+      <th scope="col" id="lista">Estado</th>
+      <th scope="col" id="lista">Fecha Creación</th>
+      <th scope="col" id="lista">Fecha Actualización</th>
+      <th scope="col" id="lista">Acciones</th>
     </tr>
   </thead>
   <tbody>

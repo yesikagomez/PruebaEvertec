@@ -12,7 +12,6 @@
 <div class="mb-2"><h4 id="Etiquetas">Estado Orden: </h4><h4 id="div"> {{$resumen->status}}</h4></div>
 <div class="mb-2"><h4 id="Etiquetas">Fecha Creación: </h4><h4 id="div"> {{$resumen->created_at}}</h4></div>
 <div class="mb-3"><h4 id="Etiquetas">Fecha Actualización: </h4><h4 id="div"> {{$resumen->updated_at}}</h4></div>
-
 @if($resumen->status != "Payed")
   <a href="{{route('pago',$resumen)}}" id="boton" class="btn btn-primary mb-4 btn-lg">Pagar</a>
 @endif

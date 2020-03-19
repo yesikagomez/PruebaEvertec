@@ -12,6 +12,7 @@ class PagesController extends Controller
         return view('orden');
     }
 
+    
     public function resumen($id){
         $resumen = App\Orden::findOrFail($id);
         return view('resumenorden',compact('resumen'));
@@ -77,26 +78,7 @@ class PagesController extends Controller
             $nuevaorden->status="Created";
             $nuevaorden->save();
         }
-            $pago=$nuevaorden->toJson();
             return view('vistapago',compact('nuevaorden'));
-    }
-    public function pagar(Request $request){
-        $nuevopago=$request;
-        /*$request->validate([
-            'name' => 'required',
-            'email' => 'required',
-            'phone' => 'required',
-            'status' => 'required'
-        ]);*/
-        //$listaeliminar = App\Orden::findOrFail($id);
-      /*  $client = new Client([
-            'base_url'=> 'https://test.placetopay.com/redirection/api/session/',
-            'timeout'=>2.0,
-        ]);
-        //$response = $client->request('GET','CreateRequest');
-        //dd($response->getBody());*/
-        $pago2=$nuevopago->toJson();
-        return view('listaorden',compact('pago2'));
     }
     public function pago($id){
         $nuevaorden =  App\Orden::findOrFail($id);

@@ -29,8 +29,8 @@ Route::put('editar/{id}', 'PagesController@update')->name('update');
 
 Route::delete('eliminar/{id}','PagesController@eliminar')->name('eliminar');
 
-Route::get('vistapago/{id}','PagesController@pago')->name('pago');
-
 Route::get('orden/{id}','JsonController@jsonorden')->name('jsorden');
+
+Route::get('respuesta/{id}','JsonController@respuesta')->name('respuesta');
 
 

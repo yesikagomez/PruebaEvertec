@@ -11,8 +11,7 @@ class PagesController extends Controller
     public function orden(){
         return view('orden');
     }
-
-    
+  
     public function resumen($id){
         $resumen = App\Orden::findOrFail($id);
         return view('resumenorden',compact('resumen'));
@@ -75,13 +74,11 @@ class PagesController extends Controller
             $nuevaorden->document=$request->document;
             $nuevaorden->email=$request->email;
             $nuevaorden->phone=$request->phone;
-            $nuevaorden->status="Created";
+            $nuevaorden->status="CREATED";
+            $nuevaorden->RequestID=1;
             $nuevaorden->save();
         }
-            return view('vistapago',compact('nuevaorden'));
-    }
-    public function pago($id){
-        $nuevaorden =  App\Orden::findOrFail($id);
-        return view('vistapago',compact('nuevaorden'));
+        $resumen=$nuevaorden;
+        return view('resumenorden',compact('resumen'));
     }
 }

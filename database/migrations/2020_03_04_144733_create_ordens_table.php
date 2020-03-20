@@ -22,6 +22,7 @@ class CreateOrdensTable extends Migration
             $table->string('email',120);
             $table->string('phone',40)->null();
             $table->string('status',20);
+            $table->integer('RequestID')->null();
             $table->timestamps();
         });
     }

@@ -11,6 +11,7 @@
       </button>
   </div> 
 @endif
+
 <form action="{{route('crear')}}" method="POST">
   @csrf
 
